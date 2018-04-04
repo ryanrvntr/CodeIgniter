@@ -38,7 +38,7 @@
       <div class="row">
       	<div class="col-6">
       		<h4>Biodata menggunakan Query dengan Array</h4>
-      		<table class="table">
+      		<table class="table-responsive">
       			<?php foreach ($biodata_query_array as $key => $value) { ?>
       				<tr>
       					<td><?php echo $value['id'] ?></td>
@@ -57,7 +57,7 @@
       	</div>
       	<div class="col-6">
       		<h4>Biodata menggunakan Query dengan Object</h4>
-      		<table class="table">
+      		<table class="table-responsive">
       			<?php foreach ($biodata_query_object as $key => $value) { ?>
       				<tr>
       					<td><?php echo $value->id ?></td>
@@ -75,8 +75,8 @@
       		</table>
       	</div>
       	<div class="col-6">
-      		<h4>Biodata menggunakan Query dengan Array</h4>
-      		<table class="table">
+      		<h4>Biodata menggunakan Builder dengan Array</h4>
+      		<table class="table-responsive">
       			<?php foreach ($biodata_builder_array as $key => $value) { ?>
       				<tr>
       					<td><?php echo $value['id'] ?></td>
@@ -94,8 +94,8 @@
       		</table>
       	</div>
       	<div class="col-6">
-      		<h4>Biodata menggunakan Query dengan Object</h4>
-      		<table class="table">
+      		<h4>Biodata menggunakan Builder dengan Object</h4>
+      		<table class="table-responsive">
       			<?php foreach ($biodata_builder_object as $key => $value) { ?>
       				<tr>
       					<td><?php echo $value->id ?></td>
