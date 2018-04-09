@@ -2,31 +2,28 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Biodata_model extends CI_Model {
-	
+
 	public function getQueryArray()
 	{
-		$query = $this->db->query('select * from biodata');
-		return $query->result_array();
-	}
-	
-		public function getQueryObject()
-	{
-		$query = $this->db->query('select * from biodata');
-		return $query->result();
-	}
-		public function getBuilderArray()
-	{
-		$query = $this->db->get('biodata');
-		return $query->result_array();
-	}
-	
-		public function getBuilderObject()
-	{
-		$query = $this->db->get('biodata');
-		return $query->result();
+		$query = $this->db->query("SELECT * FROM biodata");
+    return $query->result_array();
 	}
 
+  public function getQueryObject()
+	{
+		$query = $this->db->query("SELECT * FROM biodata");
+    return $query->result();
+	}
+
+  public function getBuilderArray()
+	{
+		$query = $this->db->get("biodata");
+    return $query->result_array();
+	}
+
+  public function getBuilderObject()
+	{
+		$query = $this->db->get("biodata");
+    return $query->result();
+	}
 }
-
-/* End of file Biodata_model.php */
-/* Location: ./application/models/Biodata_model.php */
