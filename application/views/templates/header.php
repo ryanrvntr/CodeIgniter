@@ -8,11 +8,13 @@
     <title>Ryan R</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
         <!-- Style tambahan
         Note: Jika menginginkan style CSS tambahan, gunakan file custom.css sehingga file CSS asli milik Bootstrap tetap orisinil. Tujuannya, agar nantinya jika ada update baru dari Bootstrap dan ingin kita implementasikan, maka custom style kita tidak tertimpa.
     -->
     <!-- <link rel="stylesheet" href="<?php //echo base_url() ?>assets/css/theme.min.css"> -->
-  <!--  <link rel="stylesheet" href="<?php //echo base_url() ?>assets/css/custom.css">-->
+    <!--  <link rel="stylesheet" href="<?php //echo base_url() ?>assets/css/custom.css">-->
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark box-shadowf">
@@ -49,6 +51,15 @@
       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
   </form>
 </div>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    jQuery(document).ready(function(){
+
+       // Contoh inisialisasi Datatable tanpa konfigurasi apapun
+       // #dt-basic adalah id html dari tabel yang diinisialisasi
+       $('#dt-basic').DataTable();
+});
+   </script>
 </nav>
 
 <!-- akhir Header -->
