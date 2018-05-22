@@ -2,13 +2,31 @@
 
 class Datatables extends CI_Controller {
 
-    public function index()
-    {
-	  $this->load->model('blog_model');
-        $artikel['data'] = $this->blog_model->get_all_artikel();
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('blog_model');
+	}
 
-        $this->load->view("templates/header");
-        $this->load->view('datatables/dt_view', $artikel);
-        $this->load->view("templates/footer");
-    }
+	public function index()
+	{
+		$artikel['data'] = $this->blog_model->get_all_artikel();
+
+		$this->load->view("templates/header");
+		$this->load->view('datatables/dt_view', $artikel);
+		$this->load->view("templates/footer");
+	}
+
+	public function get_json()
+	{
+		$artikel['data'] = $this->blog_model->get_all();
+		echo json_encode($artikel);
+	}
+
+	public function view_json()
+	{
+		$this->load->view("templates/header");
+		$this->load->view('datatables/dt_json');
+		$this->load->view("templates/footer");
+	}
 }
