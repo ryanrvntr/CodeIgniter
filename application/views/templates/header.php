@@ -46,10 +46,11 @@
             <?php //echo anchor('category/create', 'Kategori Baru', array('class' => 'btn btn-outline-light')); ?>
 
           </div>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          <?php if($this->session->userdata('user_login')){ ?>
+          <a class="nav-link" href="<?php echo site_url() ?>user/logout">Logout</a>
+          <?php }  else { ?>
+          <a class="nav-link" href="<?php echo site_url() ?>user/login">Login</a>
+          <?php } ?>
         </div>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
         <script>
@@ -59,7 +60,7 @@
        // #dt-basic adalah id html dari tabel yang diinisialisasi
        $('#dt-basic').DataTable();
      });
-          
+
           jQuery(document).ready(function(){
             $('#dt-ajax').DataTable({
               "ajax": "<?php echo base_url() ?>datatables/get_json",

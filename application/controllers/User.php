@@ -50,7 +50,7 @@ class User extends CI_Controller{
         );
         $this->session->set_userdata($user_data);
         // Set message
-        $this->session->set_flashdata('user_loggedin', 'You are now logged in');
+        $this->session->set_flashdata('user_login', 'You are now logged in');
         redirect('blog');
       } else {
         // Set message
@@ -58,6 +58,14 @@ class User extends CI_Controller{
         redirect('user/login');
       }
     }
+  }
+
+  public function logout(){
+    // Unset user data
+    $this->session->unset_userdata('logged_in');
+    $this->session->unset_userdata('user_id');
+    $this->session->unset_userdata('username');
+    redirect('blog');
   }
 }
 ?>

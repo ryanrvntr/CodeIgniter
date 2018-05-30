@@ -5,6 +5,10 @@
     <div class="container">
       <h1 class="jumbotron-heading"><?php	echo $page_title ?></h1>
       <h6 class="text-muted">Silahkan Isi Username dan Password Anda</h6>
+      <br>
+      <?php if($this->session->flashdata('login_failed')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+      <?php endif; ?>
     </div>
   </section>
   <section>
@@ -23,6 +27,8 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Login</button>
           <?php echo form_close(); ?>
+          <br>
+           Tidak punya akun ? <a href="<?php echo site_url('user/register') ?>">Daftar</a>
         </div>
       </div>
     </div>
