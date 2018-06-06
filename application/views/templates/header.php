@@ -46,7 +46,7 @@
             <?php //echo anchor('category/create', 'Kategori Baru', array('class' => 'btn btn-outline-light')); ?>
 
           </div>
-          <?php if($this->session->userdata('user_login')){ ?>
+          <?php if($this->session->userdata('logged_in')){ ?>
           <a class="nav-link" href="<?php echo site_url() ?>user/logout">Logout</a>
           <?php }  else { ?>
           <a class="nav-link" href="<?php echo site_url() ?>user/login">Login</a>

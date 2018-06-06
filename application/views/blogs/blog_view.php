@@ -5,10 +5,14 @@
 	<section class="jumbotron text-center">
 		<div class="container">
 			<h1 class="jumbotron-heading"><?php echo $page_title ?></h1>
-
+			<?php if ($this->session->userdata('level') == 1):
+					if ($this->session->userdata('logged_in') == true): ?>
 			<p>
 				<?php echo anchor('blog/create', 'Tulis Artikel', array('class' => 'btn btn-primary')); ?>
 			</p>
+			<?php 
+			endif;
+			endif; ?>
 		</div>
 	</section>
 
