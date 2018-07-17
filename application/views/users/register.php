@@ -39,6 +39,20 @@
             <!-- <div class="invalid-feedback">Isi Password Anda</div> -->
           </div>
           <div class="form-group">
+            <label for="">Jenis Akun</label>
+            <?php foreach ($levels as $key) : ?>
+              <?php if ($key->id != 1): ?>
+                
+              
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="membership" id="<?php echo $key->level; ?>" value="<?php echo $key->id ?>" checked>
+                <label class="form-check-label" for="regulermember"><?php echo $key->level; ?></label>
+              </div>
+              <?php endif ?>
+            <?php endforeach; ?>
+          </div>
+          
+          <div class="form-group">
             <label>Konfirmasi Password</label>
             <input type="password" class="form-control" name="password2" placeholder="Password">
             <!-- <div class="invalid-feedback">Konfirmasi Password Anda</div> -->

@@ -23,11 +23,20 @@ class User_model extends CI_Model{
     $result = $this->db->get('users');
     if($result->num_rows() == 1){
       $data['user_id'] = $result->row(0)->user_id;
-      $data['level'] = $result->row(0)->level;
-      return $data;
     } else {
       return false;
     }
   }
+  public function getUserLevel($user_id)
+  {
+    $this->db->select('id_level');
+    $this->db->where('user_id', $user_id);
+    $query = $this->db->get('users');
+    if ($result->num_rows() == 1) {
+      return $result->row(0)->id_level;
+   } else {
+     return false;
+   }
+ }
 }
 ?>

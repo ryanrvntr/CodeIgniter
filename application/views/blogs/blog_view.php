@@ -5,7 +5,7 @@
 	<section class="jumbotron text-center">
 		<div class="container">
 			<h1 class="jumbotron-heading"><?php echo $page_title ?></h1>
-			<?php if ($this->session->userdata('level') == 1):
+			<?php if ($this->session->userdata('level') == 1 || 'level' == 2):
 					if ($this->session->userdata('logged_in') == true): ?>
 			<p>
 				<?php echo anchor('blog/create', 'Tulis Artikel', array('class' => 'btn btn-primary')); ?>
@@ -15,7 +15,9 @@
 			endif; ?>
 		</div>
 	</section>
-
+		<?php var_dump($this->session->userdata('user_id')); ?>
+	<?php var_dump($this->session->userdata('level')); ?>
+	<?php var_dump($this->session->userdata('logged_in')); ?>
 	<?php if( !empty($all_artikel) ) : ?>
 		<div class="album py-5 bg-light">
 			<div class="container">

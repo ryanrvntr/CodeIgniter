@@ -5,6 +5,7 @@ class User extends CI_Controller{
     parent::__construct();
     $this->load->library('form_validation');
     $this->load->model('user_model');
+    $this->load->model('level_model');
   }
   public function register()
   {
@@ -16,6 +17,7 @@ class User extends CI_Controller{
     $this->form_validation->set_rules('password', 'Password', 'required');
     $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]');
     if($this->form_validation->run() === FALSE){
+      $data['levels'] = $this->level_model->get_all();
       $this->load->view('templates/header');
       $this->load->view('users/register', $data);
       $this->load->view('templates/footer');
@@ -31,11 +33,13 @@ class User extends CI_Controller{
     $data['page_title'] = 'Login';
     $this->form_validation->set_rules('username', 'Username', 'required');
     $this->form_validation->set_rules('password', 'Password', 'required');
+
     if($this->form_validation->run() === FALSE){
       $this->load->view('templates/header');
       $this->load->view('users/login', $data);
       $this->load->view('templates/footer');
     } else {
+      
       $username = $this->input->post('username');
       // Get & encrypt password
       $password = md5($this->input->post('password'));
@@ -46,8 +50,8 @@ class User extends CI_Controller{
         $user_data = array(
           'user_id' => $user_id,
           'username' => $username,
-          'level' => $user_id['level'],
-          'logged_in' => true
+          'logged_in' => true,
+          'level' => $this->user_model->getUserLevel($user_id)
         );
         $this->session->set_userdata($user_data);
         // Set message
